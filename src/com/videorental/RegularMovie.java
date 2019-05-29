@@ -1,0 +1,23 @@
+package com.videorental;
+
+public class RegularMovie extends Movie {
+
+	public RegularMovie(String title) {
+		super(title, Movie.REGULAR);
+		// TODO Auto-generated constructor stub
+	}
+	
+	double getChargeFor(int daysRented) {
+		double thisAmount = 0;
+		
+		thisAmount  += 2;
+		if (daysRented > 2)
+			thisAmount += (daysRented - 2) * 1.5;
+		
+		return thisAmount;
+	}
+
+	int getFrequentRentalPointsFor(int daysRented) {
+		return 1;
+	}
+}
