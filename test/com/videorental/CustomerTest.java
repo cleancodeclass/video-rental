@@ -66,10 +66,7 @@ public class CustomerTest {
 	public void statementForChildrenMovieForMoreThan3Days() {
 		
 		// arrange
-		Movie movie = new Movie(TITLE, Movie.CHILDRENS);
-		int daysRented = 4;
-		Rental rental = new Rental(movie, daysRented);
-		customer.addRental(rental);
+		customer.addRental(createRentalFor(Movie.CHILDRENS, 4));
 		
 		//act
 		//assert
@@ -82,10 +79,7 @@ public class CustomerTest {
 	public void statementForChildrenMovieForLessThan4Days() {
 		
 		// arrange
-		Movie movie = new Movie(TITLE, Movie.CHILDRENS);
-		int daysRented = 3;
-		Rental rental = new Rental(movie, daysRented);
-		customer.addRental(rental);
+		customer.addRental(createRentalFor(Movie.CHILDRENS, 3));
 		
 		//act
 		//assert
@@ -99,10 +93,7 @@ public class CustomerTest {
 	public void statementForNewReleaseMovie() {
 		
 		// arrange
-		Movie movie = new Movie(TITLE, Movie.NEW_RELEASE);
-		int daysRented = 1;
-		Rental rental = new Rental(movie, daysRented);
-		customer.addRental(rental);
+		customer.addRental(createRentalFor(Movie.NEW_RELEASE, 1));
 		
 		//act
 		//assert
@@ -115,10 +106,7 @@ public class CustomerTest {
 	public void statementForNewReleaseMovieForMoreThan1Days() {
 		
 		// arrange
-		Movie movie = new Movie(TITLE, Movie.NEW_RELEASE);
-		int daysRented = 2;
-		Rental rental = new Rental(movie, daysRented);
-		customer.addRental(rental);
+		customer.addRental(createRentalFor(Movie.NEW_RELEASE, 2));
 		
 		//act
 		//assert
@@ -132,13 +120,9 @@ public class CustomerTest {
 	public void statementForFewMovieRentals() {
 		
 		// arrange
-		Movie newReleaseMovie = new Movie(TITLE, Movie.NEW_RELEASE);
-		Movie regularMovie = new Movie(TITLE, Movie.REGULAR);
-		Movie childrensMovie = new Movie(TITLE, Movie.CHILDRENS);
-
-		customer.addRental(new Rental(regularMovie, 1));
-		customer.addRental(new Rental(newReleaseMovie, 4));
-		customer.addRental(new Rental(childrensMovie, 4));
+		customer.addRental(createRentalFor(Movie.REGULAR, 1));
+		customer.addRental(createRentalFor(Movie.NEW_RELEASE, 4));
+		customer.addRental(createRentalFor(Movie.CHILDRENS, 4));
 		
 		//act
 		//assert
